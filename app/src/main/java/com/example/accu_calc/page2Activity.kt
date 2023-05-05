@@ -43,49 +43,66 @@ class page2Activity : AppCompatActivity() {
 //THE FUNCTIONLITY OF THE CALCULATOR COMPONENTS
 
         btnAdd.setOnClickListener {
-            val num1 = etInput1.text.toString().toInt()
-            val num2 = etInput2.text.toString().toInt()
-            val finalAnswer = num1 + num2
-            tvOutput.text = "Result: $finalAnswer"
+
+            val num1 = etInput1.text.toString()
+            val num2 = etInput2.text.toString()
+            if (num1.isBlank() || num2.isBlank()) {
+                tvOutput.text = "Please put in a valid number"
+            } else {
+                val num1 = etInput1.text.toString().toInt()
+                val num2 = etInput2.text.toString().toInt()
+                val finalAnswer = num1 + num2
+                tvOutput.text = "Result: $finalAnswer"
+            }
 
         }
         btnSubtract.setOnClickListener {
             val num1 = etInput1.text.toString()
             val num2 = etInput2.text.toString()
-            if (num1.isEmpty()){
-                tvOutput.text = "Please Input  an integer"
-            }
-            else{
-                val number1 = etInput1.toString().toInt()
-                val number2 = etInput2.toString().toInt()
-                val finalAnswer = number1 - number2
+            if (num1.isBlank() || num2.isBlank()) {
+                tvOutput.text = "Please put in a valid number"
+            } else {
+                val num1 = etInput1.text.toString().toInt()
+                val num2 = etInput2.text.toString().toInt()
+                val finalAnswer = num1 - num2
                 tvOutput.text = "Result: $finalAnswer"
             }
+        }
 
-        }
+
         btnMultiply.setOnClickListener {
-            val num1 = etInput1.text.toString().toInt()
-            val num2 = etInput2.text.toString().toInt()
-            val finalAnswer = num1 * num2
-            tvOutput.text = "Result: $finalAnswer"
+            val num1 = etInput1.text.toString()
+            val num2 = etInput2.text.toString()
+            if (num1.isBlank() || num2.isBlank()) {
+                tvOutput.text = "Please put in a valid number"
+            } else {
+                val num1 = etInput1.text.toString().toInt()
+                val num2 = etInput2.text.toString().toInt()
+                val finalAnswer = num1 * num2
+                tvOutput.text = "Result: $finalAnswer"
+            }
         }
-//       btnModulus.setOnClickListener {
-//           val num1 = etInput1.text.toString().toInt()
-//           val num2 = etInput2.text.toString().toInt()
-//           val finalAnswer = num1 % num2
-//           tvOutput.text = "Result: $finalAnswer"
-//       }
+
         btnModulus.setOnClickListener {
-            val num1 = etInput1.text.toString().toInt()
-            val num2 = etInput2.text.toString().toInt()
-            if (num2 == 0) {
+            val num1 = etInput1.text.toString()
+            val num2 = etInput2.text.toString()
+            val number1 = etInput1.text.toString().toInt()
+            val number2 = etInput2.text.toString().toInt()
+            if (num1.isBlank() || num2.isBlank()) {
+                tvOutput.text = "Please put in a valid number"
+
+            }
+            else if (number2 == 0) {
                 tvOutput.text = "Result: Wrong Syntax"
             }
-
             else {
-                val finalAnswer = num1 % num2
-                tvOutput.text = "Result: $finalAnswer"
+                val finalAnswer = number1 % number2
+                    tvOutput.text = "Result: $finalAnswer"
+                }
             }
+//            if ((num2 == 0) {
+//                    tvOutput.text = "Result: Wrong Syntax"
+//                })
 
         }
     }
@@ -96,4 +113,3 @@ class page2Activity : AppCompatActivity() {
     }
 
 
-}
