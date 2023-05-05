@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#BE83C8"
+    tools:context=".page2Activity">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilInput1"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="25dp"
+        app:hintTextColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etInput1"
+            android:layout_width="424dp"
+            android:layout_height="wrap_content"
+            android:background="#792987"
+            android:hint="Enter the First Number"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#E2DFE8" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilInput2"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="25dp"
+        android:background="#42144A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilInput1">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etInput2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoText="false"
+            android:background="#6D0B7E"
+            android:hint="Enter the second number"
+            android:textColor="@color/white"
+            android:textColorLink="#D1D1C7" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="16dp"
+        android:text=" +"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilInput2" />
+
+    <Button
+        android:id="@+id/btnSubtract"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="16dp"
+        android:text=" -"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.966"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilInput2" />
+
+    <Button
+        android:id="@+id/btnMultiply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="252dp"
+        android:layout_marginEnd="16dp"
+        android:text="*"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilInput2" />
+
+    <Button
+        android:id="@+id/btnModulus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="252dp"
+        android:text="%"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.918"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilInput2" />
+
+    <TextView
+        android:id="@+id/tvSelect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="16dp"
+        android:text="Select An Action"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilInput2" />
+
+    <TextView
+        android:id="@+id/tvOutput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="268dp"
+        android:layout_marginEnd="16dp"
+        android:text="Result"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSelect" />
+</androidx.constraintlayout.widget.ConstraintLayout>
