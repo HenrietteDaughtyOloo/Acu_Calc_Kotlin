@@ -18,7 +18,7 @@ class page2Activity : AppCompatActivity() {
     lateinit var btnMultiply: Button
     lateinit var btnModulus: Button
 
-    //    lateinit var etStart: TextInputEditText
+    //    lateinit var etStart: Texthttps://appetize.io/app/zpilybwrk5vhw4sn4cvmutw22qInputEditText
     lateinit var etInput1: TextInputEditText
     lateinit var etInput2: TextInputEditText
 

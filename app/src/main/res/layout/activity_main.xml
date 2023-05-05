@@ -30,7 +30,7 @@
         android:fontFamily="sans-serif-black"
         android:foregroundTint="#FFFFFF"
         android:marqueeRepeatLimit="marquee_forever"
-        android:text="Calculate"
+        android:text=" Calculate "
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:emojiCompatEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
