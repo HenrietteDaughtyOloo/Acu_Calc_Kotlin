@@ -1,115 +1,74 @@
-package com.example.accu_calc
+package com.example.accu_calc_app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.Button
 import android.widget.TextView
+import com.example.accu_calc.databinding.ActivityPage2Binding
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
-class page2Activity : AppCompatActivity() {
-
-    lateinit var tvSelect: TextView
-    lateinit var tvOutput: TextView
-    lateinit var tilInput1: TextInputLayout
-    lateinit var tilInput2: TextInputLayout
-    lateinit var btnAdd: Button
-    lateinit var btnSubtract: Button
-    lateinit var btnMultiply: Button
-    lateinit var btnModulus: Button
-
-    //    lateinit var etStart: Texthttps://appetize.io/app/zpilybwrk5vhw4sn4cvmutw22qInputEditText
-    lateinit var etInput1: TextInputEditText
-    lateinit var etInput2: TextInputEditText
+class MainActivity : AppCompatActivity() {
+    lateinit var binding: ActivityPage2Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_page2)
-        castView()
+        binding = ActivityPage2Binding.inflate(layoutInflater)
+        setContentView(binding.root)
+
     }
 
-    fun castView() {
-        tvSelect = findViewById(R.id.tvSelect)
-        tilInput1 = findViewById(R.id.tilInput1)
-        tilInput2 = findViewById(R.id.tilInput2)
-        btnAdd = findViewById(R.id.btnAdd)
-        btnSubtract = findViewById(R.id.btnSubtract)
-        btnMultiply = findViewById(R.id.btnMultiply)
-        btnModulus = findViewById(R.id.btnModulus)
-        etInput1 = findViewById(R.id.etInput1)
-        etInput2 = findViewById(R.id.etInput2)
-        tvOutput = findViewById(R.id.tvOutput)
+    override fun onResume() {
+        super.onResume()
+        binding.btnAdd.setOnClickListener { calculate("+") }
+        binding.btnSubtract.setOnClickListener { calculate("-") }
+        binding.btnMultiply.setOnClickListener { calculate("*") }
+        binding.btnModulus.setOnClickListener { calculate("%") }
+    }
 
-//THE FUNCTIONLITY OF THE CALCULATOR COMPONENTS
+    fun calculate(operation: String) {
+        clearErrors()
+        val num1 = binding.etInput1.text.toString()
+        val num2 = binding.etInput2.text.toString()
+        var error = false
 
-        btnAdd.setOnClickListener {
-
-            val num1 = etInput1.text.toString()
-            val num2 = etInput2.text.toString()
-            if (num1.isBlank() || num2.isBlank()) {
-                tvOutput.text = "Please put in a valid number"
-            } else {
-                val num1 = etInput1.text.toString().toInt()
-                val num2 = etInput2.text.toString().toInt()
-                val finalAnswer = num1 + num2
-                tvOutput.text = "Result: $finalAnswer"
-            }
+        if (num1.isBlank()) {
+            binding.tilInput1.error = "Num1 is required"
+            error = true
 
         }
-        btnSubtract.setOnClickListener {
-            val num1 = etInput1.text.toString()
-            val num2 = etInput2.text.toString()
-            if (num1.isBlank() || num2.isBlank()) {
-                tvOutput.text = "Please put in a valid number"
-            } else {
-                val num1 = etInput1.text.toString().toInt()
-                val num2 = etInput2.text.toString().toInt()
-                val finalAnswer = num1 - num2
-                tvOutput.text = "Result: $finalAnswer"
-            }
+        if (num2.isBlank()) {
+            binding.tilInput2.error = "Num2 is required"
+            error = true
+
+
         }
+        if (!error) {
+            val firstNum = num1.toDouble()
+            val secondNum = num2.toDouble()
 
 
-        btnMultiply.setOnClickListener {
-            val num1 = etInput1.text.toString()
-            val num2 = etInput2.text.toString()
-            if (num1.isBlank() || num2.isBlank()) {
-                tvOutput.text = "Please put in a valid number"
-            } else {
-                val num1 = etInput1.text.toString().toInt()
-                val num2 = etInput2.text.toString().toInt()
-                val finalAnswer = num1 * num2
-                tvOutput.text = "Result: $finalAnswer"
-            }
-        }
-
-        btnModulus.setOnClickListener {
-            val num1 = etInput1.text.toString()
-            val num2 = etInput2.text.toString()
-            val number1 = etInput1.text.toString().toInt()
-            val number2 = etInput2.text.toString().toInt()
-            if (num1.isBlank() || num2.isBlank()) {
-                tvOutput.text = "Please put in a valid number"
-
-            }
-            else if (number2 == 0) {
-                tvOutput.text = "Result: Wrong Syntax"
-            }
-            else {
-                val finalAnswer = number1 % number2
-                    tvOutput.text = "Result: $finalAnswer"
+            val result = when (operation) {
+                "+" -> firstNum + secondNum
+                "-" -> firstNum + secondNum
+                "*" -> firstNum * secondNum
+                "%" -> {
+                    firstNum % secondNum
                 }
+                else -> throw Exception("Invalid operator")
+
             }
-//            if ((num2 == 0) {
-//                    tvOutput.text = "Result: Wrong Syntax"
-//                })
-
+            binding.tvOutput.text = result.toString()
         }
-    }
-
-    fun validateCalculate() {
-
 
     }
 
+    fun clearErrors(){
+        binding.tilInput1.error=null
+        binding.tilInput2.error=null
 
+
+    }
+}
